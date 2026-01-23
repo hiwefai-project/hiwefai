@@ -1,0 +1,10 @@
+{
+  "logging": {
+    "level": "INFO",
+    "download_log_file": "weather-radar-download.log"
+  },
+  "websocket_client": {
+    "url": "ws://localhost:8766/subscribe",
+    "product_type": "VMI"
+  }
+}

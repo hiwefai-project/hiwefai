@@ -1,0 +1,9 @@
+git+https://github.com/DagOnStar/dagonstar
+pytz
+requests
+python-magic
+websockets
+websocket-client
+rel
+libmagic
+croniter
