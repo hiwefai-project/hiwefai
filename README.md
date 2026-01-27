@@ -2,6 +2,9 @@
 
 DAGonStar scientific workflow application running the Hi-WeFAI Project demonstrator. The repository orchestrates a weather-radar-driven workflow that downloads radar scans, predicts future frames, converts radar to rain rate, and runs the LPERFECT-M hydrological model to generate outputs. The workflow is built around DAGonStar tasks and can be executed directly or triggered by a WebSocket client that collects radar updates.
 
+## DAGonStar (aka DAGon*)
+DAGonStar (Direct acyclic graph on anything) is a lightweight Python library implementing a workflow engine able to execute parallel jobs represented by direct acyclic graphs on any combination of local machines, on-premise high-performance computing clusters, containers, and cloud-based virtual infrastructures [link](https://github.com/DagOnStar/dagonstar).
+
 ## What’s included
 
 - **Workflow driver**: `app.py` defines the DAGonStar workflow graph and the SLURM/BATCH tasks it runs.
@@ -43,39 +46,6 @@ Hardware/software guidelines:
 - A SLURM environment for `TaskType.SLURM` steps (or adjust task types for local runs)
 
 ## Install
-<<<<<<< HEAD
-* Clone the repository from https://github.com/hiwefai-project/hiwefai.git
-* Set the application root path in etc/profile
-* In models/rainpredictor, clone the https://github.com/hiwefai-project/RainPredictor.git model
-* In models/lperfectm, clone the https://github.com/hiwefai-project/LPERFECT-M.git model
-* In opt, clone the https://github.com/hiwefai-project/weather-radar-utilities.git repository
-* In models/rainpredictor/data, download the file https://data.meteo.uniparthenope.it/extras/hiwefai/rainpredictor-data.tar.gz
-* Uncompress and remove the file.
-* In models/lperfectm/data, download the file https://data.meteo.uniparthenope.it/extras/hiwefai/lperfectm-data.tar.gz
-* Uncompress and remove the file.
-* In data, download the file https://data.meteo.uniparthenope.it/extras/hiwefai/data.tar.gz
-* Uncompress and remove the file.
-* Set up the environment
-
-  - Activate the Python runtime.
-  - Create the Python environment.
-  - Update Pip
-  - Install the requirements.
-  
-  For example:
-  ```bash
-
-  module load python/3.11.14 gcc-9.9.1 openssl/3.6.0 cuda/12.4 netcdf/4.8.1-gcc-8.3.1
-  python3 -m venv .venv
-  . .venv/bin/activate
-  pip3 install --upgrade pip
-  pip3 install -r requirements.txt
-
-  ```
-  
-
-## Use case
-=======
 
 1. Clone the repository.
    ```bash
@@ -171,7 +141,6 @@ The DAGonStar workflow in `app.py` currently runs the following steps:
 6. **output_plot** – generate plots from LPERFECT-M outputs.
 
 Task commands and parameters are defined in `scripts/` and within `app.py`.
->>>>>>> 659ec352e5c58cc63615b346fe8fc68a24586fc7
 
 ## Output
 
