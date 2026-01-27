@@ -29,6 +29,7 @@ Minimal configuration in Linux/MacOS:
 
   - Activate the Python runtime.
   - Create the Python environment.
+  - Update Pip
   - Install the requirements.
   
   For example:
@@ -37,6 +38,7 @@ Minimal configuration in Linux/MacOS:
   module load python/3.11.14 gcc-9.9.1 openssl/3.6.0 cuda/12.4 netcdf/4.8.1-gcc-8.3.1
   python3 -m venv .venv
   . .venv/bin/activate
+  pip3 install --upgrade pip
   pip3 install -r requirements.txt
 
   ```
