@@ -103,11 +103,24 @@ Hardware/software guidelines:
 
 Adjust these files to match your environment (paths, ports, scheduler settings, etc.).
 
+## Documentation
+
+- [Installation guide](docs/install.md)
+- [Configuration guide](docs/configure.md)
+- [Getting started](docs/getting_started.md)
+- [`app.py` workflow guide](docs/app.md)
+- [Launcher scripts guide](docs/launcher_scripts.md)
+- [December 23rd, 2025 use case](docs/use_case.md)
+
 ## Running the server
-The download and provisioning weather radar server must be configured in simulation mode in order to produce radar images previously stored.
+The download and provisioning weather radar server must be configured in simulation mode in order to produce radar images previously stored. Before starting the server, confirm that `config.json` points to the replay directory containing archived radar scans and that the WebSocket host/port match what the client expects. If you want the server to be reachable from another machine, bind to `0.0.0.0` in the configuration.
+
+Start the server in its own terminal so it can stream frames while the client is running:
 ```bash
 python opt/weather-radar-utilities/weather-radar-websocket-server.py --config config.json
 ```
+
+After it starts, verify that it is listening on the configured port and that it is reading from the expected replay directory. Leave it running while you start the WebSocket client or invoke `app.py` directly.
 
 ## Running the workflow
 
