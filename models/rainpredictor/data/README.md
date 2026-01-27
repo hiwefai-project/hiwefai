@@ -1,11 +1,11 @@
-Download here the RainPredictor data
+# RainPredictor data assets
+
+Download and extract the RainPredictor data archive in this folder:
 
 ```bash
+curl -L -o rainpredictor-data.tar.gz \
+  https://data.meteo.uniparthenope.it/extras/hiwefai/rainpredictor-data.tar.gz
 
-wget https://data.meteo.uniparthenope.it/extras/hiwefai/rainpredictor.tar.gz --no-check-certificate
-
-tar -xvzf rainpredictor-data.tar.gz
-
+tar -xzf rainpredictor-data.tar.gz
 rm rainpredictor-data.tar.gz
-
 ```
