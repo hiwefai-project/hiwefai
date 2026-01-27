@@ -1,6 +1,7 @@
 #! /bin/bash
 
-export HIWEFAI_ROOT=/projects/HiWeFAI/hiwefai
+# Set here the application root path
+export HIWEFAI_ROOT=/projects/HiWeFAI/apps/hiwefai
 
 ###############################################################################
 ## Models                                                                    ##
