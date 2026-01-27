@@ -103,6 +103,12 @@ Hardware/software guidelines:
 
 Adjust these files to match your environment (paths, ports, scheduler settings, etc.).
 
+## Running the server
+The download and provisioning weather radar server must be configured in simulation mode in order to produce radar images previously stored.
+```bash
+python opt/weather-radar-utilities/weather-radar-websocket-server.py --config config.json
+```
+
 ## Running the workflow
 
 ### Option 1: Run the workflow directly
