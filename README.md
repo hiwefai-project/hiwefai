@@ -3,7 +3,7 @@
 DAGonStar scientific workflow application running the Hi-WeFAI Project demonstrator. The repository orchestrates a weather-radar-driven workflow that downloads radar scans, predicts future frames, converts radar to rain rate, and runs the LPERFECT-M hydrological model to generate outputs. The workflow is built around DAGonStar tasks and can be executed directly or triggered by a WebSocket client that collects radar updates.
 
 ## DAGonStar (aka DAGon*)
-DAGonStar (Direct acyclic graph on anything) is a lightweight Python library implementing a workflow engine able to execute parallel jobs represented by direct acyclic graphs on any combination of local machines, on-premise high-performance computing clusters, containers, and cloud-based virtual infrastructures [link](https://github.com/DagOnStar/dagonstar).
+DAGonStar (Directed Acyclic Graph on anything) is a lightweight Python library implementing a workflow engine able to execute parallel jobs represented by directed acyclic graphs on any combination of local machines, on-premise high-performance computing clusters, containers, and cloud-based virtual infrastructures. Learn more on the [project page](https://github.com/DagOnStar/dagonstar).
 
 ## What’s included
 
@@ -53,7 +53,7 @@ Hardware/software guidelines:
    cd hiwefai
    ```
 
-2. Set the application root path in `etc/profile`.
+2. Set the application root path in `etc/profile` (update `HIWEFAI_ROOT`).
 
 3. Clone required model repositories.
    ```bash
@@ -113,6 +113,7 @@ Adjust these files to match your environment (paths, ports, scheduler settings, 
 - [December 23rd, 2025 use case](docs/use_case.md)
 
 ## Running the server
+
 The download and provisioning weather radar server must be configured in simulation mode in order to produce radar images previously stored. Before starting the server, confirm that `config.json` points to the replay directory containing archived radar scans and that the WebSocket host/port match what the client expects. If you want the server to be reachable from another machine, bind to `0.0.0.0` in the configuration.
 
 Start the server in its own terminal so it can stream frames while the client is running:
