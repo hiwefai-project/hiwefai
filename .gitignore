@@ -210,4 +210,6 @@ __marimo__/
 models/lperfectm/LPERFECT-M
 models/rainpredictor/RainPredictor
 opt/weather-radar-utilities
-data/output/.*
+!data/output/README.md
+!models/lperfectm/data/README.md
+!models/rainpredictor/data/README.md
