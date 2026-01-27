@@ -10,6 +10,7 @@ The script begins by importing DAGonStar workflow primitives and standard CLI pa
 from dagon import Workflow, DataMover, StagerMover
 from dagon.task import DagonTask, TaskType
 import argparse
+import os
 ```
 
 **Why it matters:** `Workflow` and `DagonTask` define the DAG nodes and edges. `TaskType` identifies the execution backend (batch vs. SLURM). `argparse` is used to collect runtime parameters from the command line.
@@ -52,7 +53,7 @@ A new workflow is created and the base directory for helper scripts is declared.
     workflow = Workflow("HiWeFAI-Demo", config_file="dagon.ini")
 
     # The application root
-    hiwefai_root = "/projects/HiWeFAI/hiwefai"
+    hiwefai_root = os.path.dirname(os.path.realpath(__file__))
     command_dir_base = hiwefai_root + "/scripts/"
 ```
 
