@@ -1,10 +1,12 @@
 # December 23rd, 2025 use case (Campania Region, 14:00Z–15:00Z)
 
-This guide describes a narrative and technical workflow for the December 23rd, 2025 demonstrator run focused on the Campania Region between 14:00Z and 15:00Z. It assumes you are operating the Hi-WeFAI workflow in simulation mode with archived radar scans.
+This guide describes the workflow for the December 23rd, 2025, demonstrator run focused on the Campania Region, from 14:00Z to 15:00Z. It assumes you are operating the Hi-WeFAI workflow in simulation mode with archived radar scans.
 
 ## Narrative overview
 
-At 14:00Z on December 23rd, 2025, the Campania Region is expected to experience a short-lived but intense precipitation event. The demonstrator run replays the radar scans for that hour, executes the RainPredictor model to estimate near-term evolution, and then runs LPERFECT-M to generate hydrological outputs (e.g., discharge estimations) for the area.
+At 14:00Z on December 23rd, 2025, the Campania Region is expected to experience a short-lived but intense precipitation event. The demonstrator runs replays the radar scans for that hour, executes the RainPredictor model to estimate near-term evolution, and then runs LPERFECT-M to generate hydrological outputs (e.g., discharge estimations) for the area.
+
+All datasets used in this use case are available for download [here](https://data.meteo.uniparthenope.it/extras/hiwefai/).
 
 The workflow combines:
 
