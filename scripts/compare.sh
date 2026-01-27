@@ -34,9 +34,6 @@ ln -sf $HIWEFAI_ROOT/models/rainpredictor/data/truth $THISDIR/data/truth
 source /opt/share/sw/anaconda/anaconda3/etc/profile.d/conda.sh
 conda activate hiwefai_rainpredictor
 
-#python $THISDIR/compare.py --truth-dir $THISDIR/data/truth --pred-dir $THISDIR/data/pred --metrics --metrics-json $THISDIR/data/metrics.json --palette $THISDIR/palette.json --save $THISDIR/data/output.png
-
 echo "python $THISDIR/compare.py --truth-dir $THISDIR/data/truth --pred-dir $THISDIR/data/pred --palette $THISDIR/palette.json --save $THISDIR/data/output.png"
 
-# python $THISDIR/compare.py --truth-dir $THISDIR/data/truth --pred-dir $THISDIR/data/pred --palette $THISDIR/palette.json --save $THISDIR/data/output.png
-python $THISDIR/compare.py --truth-dir $THISDIR/data/truth --pred-dir $predDir --palette $THISDIR/palette.json --save $THISDIR/data/output.png
+python $THISDIR/compare.py --truth-dir $THISDIR/data/truth --pred-dir $predDir --palette $THISDIR/palette.json --save $HIWEFAI_ROOT/data/output/compare.png
