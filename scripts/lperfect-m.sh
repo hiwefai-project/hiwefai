@@ -33,6 +33,15 @@ mkdir -p $THISDIR/data/output 2>/dev/null
 # Create the data/restart directory
 mkdir -p $THISDIR/data/restart 2>/dev/null
 
+# Create the data/forcing directory
+mkdir -p $THISDIR/data/forcing 2>/dev/null
+
+# Link the wrf
+ln -sf $HIWEFAI_ROOT/models/lperfect-m/data/forcing/wrf_d02.nc $THISDIR/data/forcing/wrf_d02.nc
+
+# Link the ws
+ln -sf $HIWEFAI_ROOT/models/lperfect-m/data/forcing/ws.nc $THISDIR/data/forcing/ws.nc
+
 # Link the best model in the checkpoint directory
 ln -sf $HIWEFAI_ROOT/models/lperfect-m/data/domain.nc $THISDIR/data/domain.nc
 
@@ -89,7 +98,7 @@ cat >> config.json << EOF
   "model": {
     "start_time": "$iso8601",
     "T_s": $simulationTime,
-    "dt_s": 60,
+    "dt_s": 30,
     "encoding": "esri",
     "ia_ratio": 0.2,
     "particle_vol_m3": 0.25,
@@ -125,7 +134,25 @@ cat >> config.json << EOF
         "time_var": "time",
         "select": "previous",
         "mode": "intensity_mmph",
-        "weight": 1.0
+        "weight": 0.4
+      },
+      "wrf": {
+        "kind": "netcdf",
+        "path": "$THISDIR/data/forcing/wrf_d02.nc",
+        "var": "rain_rate",
+        "time_var": "time",
+        "select": "previous",
+        "mode": "intensity_mmph",
+        "weight": 0.2
+      },
+      "ws": {
+        "kind": "netcdf",
+        "path": "$THISDIR/data/forcing/ws.nc",
+        "var": "rain_rate",
+        "time_var": "time",
+        "select": "previous",
+        "mode": "intensity_mmph",
+        "weight": 0.4
       }
     }
   },
@@ -149,7 +176,7 @@ cat >> config.json << EOF
     "Conventions": "CF-1.10",
     "title": "LPERFECT flood depth + hydrogeological risk index",
     "institution": "UniParthenope",
-    "variables": ["flood_depth", "risk_index"]
+    "variables": ["flood_depth", "risk_index", "inundation_mask"]
   },
   "compute": {
     "device": "cpu",
@@ -179,3 +206,5 @@ conda activate hiwefai_lperfect-m
 
 # Run the the model
 mpirun python main.py --config config.json
+
+cp $THISDIR/data/output/history_0000.nc $HIWEFAI_ROOT/data/output/history_0000.nc
