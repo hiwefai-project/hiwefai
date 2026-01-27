@@ -29,16 +29,17 @@ ln -sf $HIWEFAI_ROOT/models/lperfect-m/data/limits_IT_provinces.geojson $THISDIR
 # Link the predict script
 ln -sf $HIWEFAI_ROOT/models/lperfect-m/LPERFECT-M/utils/output_to_geo.py $THISDIR
 
-# Link the input files in data/input
-ln -sf $wrInput $THISDIR/data/input
-
 # Set CONDA environment
 source /opt/share/sw/anaconda/anaconda3/etc/profile.d/conda.sh
 conda activate hiwefai_lperfect-m
 
 # Run output_plot
-python utils/output_plot.py \
+python output_to_geo.py \
   --nc $inputFile \
   --geojson-in $THISDIR/data/limits_IT_provinces.geojson \
-  --geojson-out $THISDIR/data/output
+  --geojson-out $THISDIR/data/output/risk.geojson \
+  --stats-mode fast \
+  --area-weighting coslat \
+  --all-touched
 
+cp $THISDIR/data/output/risk.geojson $HIWEFAI_ROOT/data/output/
