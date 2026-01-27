@@ -3,13 +3,15 @@ DAGonStar scientific workflow application running the Hi-WeFAI Project demonstra
 
 ## Prerequisites
 
-The Hi-WeFAI application is a fully working pure Python prototype.
-It has been tested on Linux and MacOS. On Windows was never tested, but probably it works.
-Minimal configuration in Linux/MacOS
-64 GB of RAM
-4 computing CPU cores
-NVIDIA CUDA GPU -- optional.
-Minimum Python version 3.11
+The Hi-WeFAI application is a fully functional, pure-Python prototype.
+
+It has been tested on Linux and MacOS. On Windows, it was never tested, but it probably works.
+
+Minimal configuration in Linux/MacOS:
+- 64 GB of RAM
+- 4 computing CPU cores
+- NVIDIA CUDA GPU -- optional.
+- Minimum Python version 3.11
 
 ## Install
 * Clone the repository from https://github.com/hiwefai-project/hiwefai.git
@@ -23,7 +25,7 @@ Minimum Python version 3.11
 * Uncompress and remove the file.
 * In data, download the file https://data.meteo.uniparthenope.it/extras/hiwefai/data.tar.gz
 * Uncompress and remove the file.
-* Setup the environment
+* Set up the environment
 
   - Activate the Python runtime.
   - Create the Python environment.
