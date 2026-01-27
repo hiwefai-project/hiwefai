@@ -1,8 +1,7 @@
 from dagon import Workflow, DataMover, StagerMover
 from dagon.task import DagonTask, TaskType
 import argparse
-
-
+import os
 
 def parse_args():
     parser = argparse.ArgumentParser(description="")
@@ -20,7 +19,7 @@ if __name__ == '__main__':
     workflow = Workflow("HiWeFAI-Demo", config_file="dagon.ini")
 
     # The application root
-    hiwefai_root = "/projects/HiWeFAI/hiwefai"
+    hiwefai_root = os.path.dirname(os.path.realpath(__file__))
     command_dir_base = hiwefai_root + "/scripts/"
 
     # ToDo: set those parameters by command line
